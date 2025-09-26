@@ -15,6 +15,7 @@ public class Users {
     private String password;
     private String name;
     private String email;
+    private String phoneNumber;
 
     private boolean isJoined;
 
@@ -22,11 +23,12 @@ public class Users {
     private Role role;
 
     @Builder
-    public Users(String username, String password, String name, String email) {
+    public Users(String username, String password, String name, String email, String phoneNumber) {
         this.username = username;
         this.password = password;
         this.name = name;
         this.email = email;
+        this.phoneNumber = phoneNumber;
         this.isJoined = false;  // Default is not joined
         this.role = Role.USER; // Default role is USER
     }
