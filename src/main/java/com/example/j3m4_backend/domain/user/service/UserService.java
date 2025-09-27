@@ -1,4 +1,4 @@
-package com.example.j3m4_backend.domain.user;
+package com.example.j3m4_backend.domain.user.service;
 
 import com.example.j3m4_backend.domain.user.dto.UserJoinRequest;
 import com.example.j3m4_backend.domain.user.model.UserStatus;

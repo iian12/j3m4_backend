@@ -1,6 +1,6 @@
 package com.example.j3m4_backend.global.auth;
 
-import com.example.j3m4_backend.domain.user.UserService;
+import com.example.j3m4_backend.domain.user.service.UserService;
 import com.example.j3m4_backend.global.dto.MessageResponse;
 import com.example.j3m4_backend.global.security.JwtTokenResponse;
 import jakarta.servlet.http.Cookie;

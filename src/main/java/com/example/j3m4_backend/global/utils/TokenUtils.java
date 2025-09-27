@@ -7,6 +7,7 @@ import io.jsonwebtoken.security.Keys;
 import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Component;
 import java.security.Key;
 import java.util.Base64;
 
+@Slf4j
 @Component
 public class TokenUtils {
 
@@ -94,11 +96,14 @@ public class TokenUtils {
                 token = token.substring(7);
             }
 
-            Claims claims = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token)
+            Claims claims = Jwts.parserBuilder()
+                    .setSigningKey(key)
+                    .build()
+                    .parseClaimsJws(token)
                     .getBody();
 
             String userId = claims.getSubject();
-
+            log.info("User ID: {}", userId);
             if (userId == null) {
                 throw new IllegalArgumentException("Invalid JWT token");
             }

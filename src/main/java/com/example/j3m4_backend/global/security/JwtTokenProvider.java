@@ -52,8 +52,8 @@ public class JwtTokenProvider {
             Date validity = new Date(now.getTime() + accessTokenValidityInMs);
 
             return Jwts.builder()
-                    .setSubject(String.valueOf(userId))
-                    .setClaims(claims)
+                    .setSubject(userId.toString())
+                    .claim("role", user.getRole().toString())
                     .setIssuedAt(now)
                     .setExpiration(validity)
                     .signWith(key, SignatureAlgorithm.HS256)

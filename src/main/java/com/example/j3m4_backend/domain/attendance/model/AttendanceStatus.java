@@ -1,4 +1,4 @@
-package com.example.j3m4_backend.domain.attendance;
+package com.example.j3m4_backend.domain.attendance.model;
 
 public enum AttendanceStatus {
     PRESENT,
