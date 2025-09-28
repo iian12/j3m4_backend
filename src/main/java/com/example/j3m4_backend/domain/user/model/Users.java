@@ -16,6 +16,7 @@ public class Users {
     private String name;
     private String email;
     private String phoneNumber;
+    private Unit unit;
 
     private boolean isJoined;
 
@@ -31,6 +32,7 @@ public class Users {
         this.phoneNumber = phoneNumber;
         this.isJoined = false;  // Default is not joined
         this.role = Role.USER; // Default role is USER
+        this.unit = Unit.UNDECIDED; // Default unit is UNDECIDED
     }
 
     public void updatePassword(String newPassword) {

@@ -30,15 +30,17 @@ public class AuthController {
             // 액세스 토큰을 쿠키로 설정
             Cookie accessTokenCookie = new Cookie("access_token", tokenResponse.getAccessToken());
             accessTokenCookie.setHttpOnly(false);
-            accessTokenCookie.setSecure(false); // True 설정 시 HTTPS 환경에서만 사용 가능
+            accessTokenCookie.setSecure(true);
             accessTokenCookie.setPath("/"); // 전체 경로에서 사용 가능
+            accessTokenCookie.setAttribute("SameSite", "None"); // SameSite 속성 설정
             accessTokenCookie.setMaxAge(60 * 60 * 2); // 2h
 
             // 리프레시 토큰을 쿠키로 설정
             Cookie refreshTokenCookie = new Cookie("refresh_token", tokenResponse.getRefreshToken());
             refreshTokenCookie.setHttpOnly(false);
-            refreshTokenCookie.setSecure(false); // True 설정 시 HTTPS 환경에서만 사용 가능
+            refreshTokenCookie.setSecure(true);
             refreshTokenCookie.setPath("/"); // 전체 경로에서 사용 가능
+            refreshTokenCookie.setAttribute("SameSite", "None"); // SameSite 속성 설정
             refreshTokenCookie.setMaxAge(7 * 24 * 60 * 60 * 2); // 7일
 
             response.addCookie(accessTokenCookie);

@@ -10,5 +10,7 @@ public interface AttendanceRepository extends JpaRepository<Attendance, Long> {
 
     Optional<Attendance> findByUserIdAndScheduleId(Long userId, Long scheduleId);
 
+    List<Attendance> findByUserId(Long userId);
+
     List<Attendance> findByScheduleId(Long scheduleId);
 }
